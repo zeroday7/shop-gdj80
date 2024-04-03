@@ -85,10 +85,17 @@
 					<td><%=(String)(m.get("empName"))%></td>
 					<td><%=(String)(m.get("empJob"))%></td>
 					<td><%=(String)(m.get("hireDate"))%></td>
-					<td>	
-						<a href='modifyEmpActive.jsp?active=<%=(String)(m.get("active"))%>'>
-							<%=(String)(m.get("active"))%>
-						</a>
+					<td>
+						<%
+						HashMap<String, Object> sm = (HashMap<String, Object>)(session.getAttribute("loginEmp"));
+							if((Integer)(sm.get("grade")) > 0) {
+						%>	
+								<a href='modifyEmpActive.jsp?active=<%=(String)(m.get("active"))%>'>
+									<%=(String)(m.get("active"))%>
+								</a>
+						<%
+							}
+						%>
 					</td>
 				</tr>
 		<%		
